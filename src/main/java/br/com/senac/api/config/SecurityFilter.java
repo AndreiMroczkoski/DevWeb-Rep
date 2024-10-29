@@ -23,7 +23,6 @@ public class SecurityFilter extends OncePerRequestFilter {
     TokenService tokenService;
 
     @Autowired
-    UsuariosRepository usuarioRepositomkdir nova_pastary;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException, IOException {
@@ -31,7 +30,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         String login = tokenService.validarToken(token);
 
         if(login != null){
-            Usuarios usuario = usuarioRepository.findByLogin(login).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+            Usuarios usuario = UsuariosRepository.findByLogin(login).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
             //var authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
 
