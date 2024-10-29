@@ -1,0 +1,18 @@
+spring:
+  activemq:
+    user: admin
+    password: admin
+    broker-url: tcp://localhost:61616
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/exemplo-api
+    username: root
+    password:
+    driverClassName: com.mysql.cj.jdbc.Driver
+  security:
+    secret: "exemplo-aula-jwt"
+    expiration_time: 1
